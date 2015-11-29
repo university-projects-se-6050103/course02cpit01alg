@@ -3,7 +3,6 @@ package ua.vladgolubev;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Arrays;
 import java.util.Random;
 
 import static org.junit.Assert.assertTrue;
@@ -56,34 +55,15 @@ public class QuicksortTest {
 
     @Test
     public void testQuickSort() {
-        for (Integer i : numbers) {
-            System.out.print(i + " ");
-        }
         long startTime = System.currentTimeMillis();
 
         Quicksort sorter = new Quicksort();
         sorter.sort(numbers);
 
-        long stopTime = System.currentTimeMillis();
-        long elapsedTime = stopTime - startTime;
-        System.out.println("Quicksort " + elapsedTime);
+        long elapsedTime = System.currentTimeMillis() - startTime;
+        System.out.println("Час виконання Quicksort " + elapsedTime);
 
-        if (!validate(numbers)) {
-            fail("Should not happen");
-        }
-        assertTrue(true);
-    }
-
-    @Test
-    public void testStandardSort() {
-        long startTime = System.currentTimeMillis();
-        Arrays.sort(numbers);
-        long stopTime = System.currentTimeMillis();
-        long elapsedTime = stopTime - startTime;
-        System.out.println("Standard Java sort " + elapsedTime);
-        if (!validate(numbers)) {
-            fail("Should not happen");
-        }
+        if (!validate(numbers)) fail();
         assertTrue(true);
     }
 
